@@ -59,4 +59,18 @@ export class UserServicesMock {
             return [];
         }
     }
+
+    getUserScore = async (id: number | string) => {
+        try {
+
+            const response = await fetch(`${URL_DEV}/user.json`);
+
+            const data = await response.json();
+
+            return data.find((user: UserType) => user.id == id).todayScore
+
+        } catch (error) {
+            return [];
+        }
+    }
 }

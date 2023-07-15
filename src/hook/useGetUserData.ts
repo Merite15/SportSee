@@ -28,6 +28,8 @@ export const useGetUserData = (userId: number | string) => {
                     activity: await userServices.getUserActivity(userId),
                     average: await userServices.getUserAverage(userId),
                     performance: await userServices.getUserPerformance(userId),
+                    score: await userServices.getUserScore(userId),
+                    todayScore: await userServices.getUserScore(userId)
                 };
 
                 setData(new UserModel(store));

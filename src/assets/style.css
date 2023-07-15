@@ -396,6 +396,51 @@ body {
   fill: #D3D3D3;
 }
 
+.chartRadial {
+  position: relative;
+  background: #FBFBFB;
+  border-radius: 5px;
+  height: 263px;
+  min-width: 240px;
+  opacity: 0.9;
+}
+.chartRadial .title {
+  position: absolute;
+  margin-top: 24px;
+  margin-left: 24px;
+  color: #020202;
+  font-size: 15px;
+  font-weight: 700;
+}
+.chartRadial .radial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  position: absolute;
+  content: "";
+  width: 150px;
+  height: 150px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: -1;
+  background-color: #0B0C0D;
+}
+.chartRadial .radial-content .percentage {
+  font-size: 26px;
+  font-weight: 700;
+  color: lightgrey;
+}
+.chartRadial .radial-content .message {
+  font-size: 16px;
+  font-weight: 600;
+  color: lightgrey;
+  opacity: 0.6;
+}
+
 .home {
   display: flex;
   justify-content: center;

@@ -1,6 +1,8 @@
 import { LineChart, Line, Tooltip, XAxis, ResponsiveContainer } from 'recharts';
 
 export const ChartLine = ({ data }: { data: Array<object> }) => {    
+    console.log(data);
+    
     return (
         <div className='chartLine'>
             <h2>
