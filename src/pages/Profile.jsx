@@ -5,12 +5,13 @@ import { Header } from '../components/navigation/Header';
 import { Loader } from '../components/utils/Loader';
 import { Error } from '../components/utils/Error';
 import { Title } from '../components/user/Title';
+import { ChartBar } from '../components/charts/Bar';
 
 export const Profile = () => {
     const { id } = useParams();
 
     const [data, loading, error] = useGetUserData(Number(id));
-    
+
     return (
         <>
             <Header />
@@ -19,8 +20,15 @@ export const Profile = () => {
             {loading ?
 
                 <Loader /> : error ? <Error /> :
-                    <div className="main-container">
+                    <div className="container">
                         <Title data={data.user} />
+
+                        <div className="content">
+                            <div className="left-content">
+                                <ChartBar data={data.activity} />
+                            </div>
+                        </div>
+
                     </div>}
         </>
     )

@@ -1,7 +1,22 @@
-.main-container {
+.container {
     background-color: inherit;
     margin-top: 140px;
     margin-left: 210px;
     margin-right: 90px;
     margin-bottom: 88px;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+
+        .left-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            width: 70%;
+        }
+    }
 }

@@ -25,6 +25,7 @@ export const useGetUserData = (userId: number | string) => {
                     id: userId,
                     userId: userId,
                     user: await userServices.getUser(userId),
+                    activity: await userServices.getUserActivity(userId),
                 };
 
                 setData(new UserModel(store));
