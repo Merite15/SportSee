@@ -33,5 +33,17 @@ export class UserServicesMock {
         } catch (error) {
             return [];
         }
+    };
+
+    getUserAverage = async (id: number | string) => {
+        try {
+
+            const response = await fetch(`${URL_DEV}/average_sessions.json`);
+            const data = await response.json();
+            return ChartFormater.Average(data.find((user: UserType) => user.userId == id));
+
+        } catch (error) {
+            return [];
+        }
     }
 }

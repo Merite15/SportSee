@@ -332,6 +332,52 @@ body {
   align-items: center;
 }
 
+.chartLine {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: #FF0101;
+  border-radius: 5px;
+  height: 263px;
+  min-width: 240px;
+  opacity: 0.9;
+  font-size: 12px;
+  font-weight: 500;
+}
+.chartLine:before {
+  content: "";
+  width: 30%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.1;
+  position: absolute;
+  right: 0;
+}
+.chartLine h2 {
+  color: #D3D3D3;
+  font-weight: 500;
+  padding-top: 30px;
+  padding-left: 30px;
+  font-size: 15px;
+  max-width: 200px;
+  line-height: 24px;
+}
+.chartLine .legend {
+  display: flex;
+  padding-bottom: 25px;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.chartLine .legend p {
+  color: #D3D3D3;
+  font-weight: 500;
+}
+.chartLine .recharts-tooltip-item-list,
+.chartLine .xAxis {
+  display: none;
+}
+
 .home {
   display: flex;
   justify-content: center;
@@ -507,6 +553,15 @@ body {
   flex-direction: column;
   gap: 30px;
   width: 70%;
+}
+.container .content .left-content > div {
+  justify-content: space-around;
+  display: flex;
+  gap: 30px;
+  flex-wrap: nowrap;
+}
+.container .content .left-content > div > div {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */

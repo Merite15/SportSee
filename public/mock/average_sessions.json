@@ -1,0 +1,35 @@
+[
+  {
+    "userId": 10,
+    "sessions": [
+      {
+        "day": 1,
+        "sessionLength": 25
+      },
+      {
+        "day": 2,
+        "sessionLength": 28
+      },
+      {
+        "day": 3,
+        "sessionLength": 49
+      },
+      {
+        "day": 4,
+        "sessionLength": 53
+      },
+      {
+        "day": 5,
+        "sessionLength": 28
+      },
+      {
+        "day": 6,
+        "sessionLength": 54
+      },
+      {
+        "day": 7,
+        "sessionLength": 60
+      }
+    ]
+  }
+]

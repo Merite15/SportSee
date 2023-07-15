@@ -6,6 +6,7 @@ import { Loader } from '../components/utils/Loader';
 import { Error } from '../components/utils/Error';
 import { Title } from '../components/user/Title';
 import { ChartBar } from '../components/charts/Bar';
+import { ChartLine } from '../components/charts/Line';
 
 export const Profile = () => {
     const { id } = useParams();
@@ -26,6 +27,10 @@ export const Profile = () => {
                         <div className="content">
                             <div className="left-content">
                                 <ChartBar data={data.activity} />
+
+                                <div>
+                                    <ChartLine data={data.average} />
+                                </div>
                             </div>
                         </div>
 
