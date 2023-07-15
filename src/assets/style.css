@@ -168,6 +168,51 @@ body {
   color: #fff;
 }
 
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  padding-top: 90px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  background-color: #020202;
+  width: 117px;
+}
+.sidebar .icons {
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 150px;
+}
+.sidebar .icons i {
+  display: flex;
+  justify-content: center;
+  min-width: 64px;
+  min-height: 64px;
+  border-radius: 6px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.sidebar .icons i img {
+  max-width: 32px;
+  max-width: 32px;
+}
+.sidebar .copyright {
+  position: absolute;
+  z-index: -2;
+  bottom: 200px;
+  width: 150px;
+  transform: rotate(270deg);
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  color: #D3D3D3;
+}
+
 .home {
   display: flex;
   justify-content: center;
