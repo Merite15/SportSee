@@ -1,5 +1,5 @@
 import { User as UserType } from "../types/User";
-import { ChartFormater } from "../utils/Formater";
+import { ChartFormater } from "../utils/formater";
 
 const URL_DEV = "http://localhost:5173/mock"
 
