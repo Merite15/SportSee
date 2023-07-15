@@ -34,4 +34,34 @@ export class ChartFormater {
             sessionLength: session.sessionLength
         }));
     };
+
+    static Performance(original: any) {
+        function formatKind(chiffre: string | number) {
+            if (chiffre === 1) {
+                return "Cardio";
+            } else if (chiffre === 2) {
+                return "Energie";
+            } else if (chiffre === 3) {
+                return "Endurance";
+            } else if (chiffre === 4) {
+                return "Force";
+            } else if (chiffre === 5) {
+                return "Vitesse";
+            } else if (chiffre === 6) {
+                return "intensité"
+            }
+            else {
+                return "Chiffre invalide";
+            }
+        }
+
+        const data = original.data.map((performance: any) => ({
+            kind: formatKind(performance.kind),
+            value: performance.value
+        }));
+
+        const reversedData = [...data].reverse();
+
+        return reversedData;
+    }
 }

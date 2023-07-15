@@ -378,6 +378,24 @@ body {
   display: none;
 }
 
+.chartRadar {
+  display: flex;
+  background: #020202;
+  border-radius: 5px;
+  height: 263px;
+  min-width: 240px;
+  opacity: 0.9;
+}
+.chartRadar tspan,
+.chartRadar .tspan {
+  text-align: left;
+  position: absolute;
+  margin-top: 10%;
+  font-size: 12px;
+  font-weight: 500;
+  fill: #D3D3D3;
+}
+
 .home {
   display: flex;
   justify-content: center;

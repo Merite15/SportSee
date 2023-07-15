@@ -7,6 +7,7 @@ import { Error } from '../components/utils/Error';
 import { Title } from '../components/user/Title';
 import { ChartBar } from '../components/charts/Bar';
 import { ChartLine } from '../components/charts/Line';
+import { ChartRadar } from '../components/charts/Radar';
 
 export const Profile = () => {
     const { id } = useParams();
@@ -30,6 +31,7 @@ export const Profile = () => {
 
                                 <div>
                                     <ChartLine data={data.average} />
+                                    <ChartRadar data={data.performance} />
                                 </div>
                             </div>
                         </div>

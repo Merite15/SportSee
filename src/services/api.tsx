@@ -45,5 +45,18 @@ export class UserServicesMock {
         } catch (error) {
             return [];
         }
+    };
+
+    getUserPerformance = async (id: number | string) => {
+        try {
+
+            const response = await fetch(`${URL_DEV}/user_performance.json`);
+
+            const data = await response.json();
+
+            return ChartFormater.Performance(data.find((user: UserType) => user.userId == id));
+        } catch (error) {
+            return [];
+        }
     }
 }

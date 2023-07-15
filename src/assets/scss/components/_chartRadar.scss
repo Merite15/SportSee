@@ -1,0 +1,20 @@
+.chartRadar {
+    display: flex;
+    background: $colorPrimary;
+    border-radius: 5px;
+
+    height: 263px;
+    min-width: 240px;
+
+    opacity: 0.9;
+
+    tspan,
+    .tspan {
+        text-align: left;
+        position: absolute;
+        margin-top: 10%;
+        font-size: 12px;
+        font-weight: $fontWeight;
+        fill: $colorSecondary;
+    }
+}
