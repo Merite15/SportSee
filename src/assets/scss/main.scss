@@ -1,9 +1,10 @@
 @import "./utils/variables";
-@import "./utils/mixins";
 
 @import "./base/reset";
 @import "./base/typography";
 @import "./base/font";
+
+@import "./components/header";
 
 @import "./pages/home";
 @import "./pages/notFound";
