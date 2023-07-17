@@ -29,7 +29,8 @@ export const useGetUserData = (userId: number | string) => {
                     average: await userServices.getUserAverage(userId),
                     performance: await userServices.getUserPerformance(userId),
                     score: await userServices.getUserScore(userId),
-                    todayScore: await userServices.getUserScore(userId)
+                    todayScore: await userServices.getUserScore(userId),
+                    userInfos: await userServices.getUserInfos(userId),
                 };
 
                 setData(new UserModel(store));

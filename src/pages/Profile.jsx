@@ -9,6 +9,7 @@ import { ChartBar } from '../components/charts/Bar';
 import { ChartLine } from '../components/charts/Line';
 import { ChartRadar } from '../components/charts/Radar';
 import { ChartRadial } from '../components/charts/Radial';
+import { Card as CardStat } from '../components/user/Card';
 
 export const Profile = () => {
     const { id } = useParams();
@@ -35,6 +36,13 @@ export const Profile = () => {
                                     <ChartRadar data={data.performance} />
                                     <ChartRadial score={data.score} />
                                 </div>
+                            </div>
+
+                            <div className="right-content">
+                                <CardStat type="Calories" nbGramme={data.userInfos?.calorie} />
+                                <CardStat type="Proteines" nbGramme={data.userInfos?.protein} />
+                                <CardStat type="Glucides" nbGramme={data.userInfos?.glucide} />
+                                <CardStat type="Lipides" nbGramme={data.userInfos?.lipid} />
                             </div>
                         </div>
 

@@ -73,4 +73,18 @@ export class UserServicesMock {
             return [];
         }
     }
+
+    getUserInfos = async (id: number | string) => {
+        try {
+
+            const response = await fetch(`${URL_DEV}/user.json`);
+
+            const data = await response.json();
+            
+            return ChartFormater.Info(data.find((user: UserType) => user.id == id).keyData)
+
+        } catch (error) {
+            return [];
+        }
+    }
 }

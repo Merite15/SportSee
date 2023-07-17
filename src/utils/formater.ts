@@ -64,4 +64,13 @@ export class ChartFormater {
 
         return reversedData;
     }
+
+    static Info(original: any) {
+        return {
+            calorie: original.calorieCount,
+            protein: original.proteinCount,
+            glucide: original.carbohydrateCount,
+            lipid: original.lipidCount
+        }
+    };
 }
