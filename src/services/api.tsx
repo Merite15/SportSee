@@ -3,6 +3,8 @@ import { ChartFormater } from "../utils/formater";
 
 const URL_DEV = "http://localhost:5173/mock"
 
+const URL_PROD = "https://sport-see-backend-eight.vercel.app/user"
+
 export class UserServicesMock {
     id?: number | string;
 
@@ -80,9 +82,93 @@ export class UserServicesMock {
             const response = await fetch(`${URL_DEV}/user.json`);
 
             const data = await response.json();
-            
+
             return ChartFormater.Info(data.find((user: UserType) => user.id == id).keyData)
 
+        } catch (error) {
+            return [];
+        }
+    }
+}
+
+export class UserServicesApi {
+    id?: number | string;
+
+    constructor(id: number | string) {
+        this.id = id;
+    }
+
+    getUser = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}`);
+
+            const data = await response.json();
+
+            return data.data
+
+        } catch (error) {
+            return [];
+        }
+    };
+
+    getUserActivity = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}/activity`);
+
+            const data = await response.json();
+
+            return ChartFormater.Bar(data.data);
+
+        } catch (error) {
+            return [];
+        }
+    };
+
+    getUserAverage = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}/average-sessions`);
+
+            const data = await response.json();
+
+            return ChartFormater.Average(data.data);
+
+        } catch (error) {
+            return [];
+        }
+    };
+
+    getUserPerformance = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}/performance`);
+
+            const data = await response.json();
+
+            return ChartFormater.Performance(data.data);
+        } catch (error) {
+            return [];
+        }
+    }
+
+    getUserScore = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}`);
+
+            const data = await response.json();
+
+            return data.data.todayScore ? data.data.todayScore : data.data.score
+
+        } catch (error) {
+            return [];
+        }
+    }
+
+    getUserInfos = async (id: number | string) => {
+        try {
+            const response = await fetch(`${URL_PROD}/${id}`);
+
+            const data = await response.json();
+
+            return ChartFormater.Info(data.data.keyData)
         } catch (error) {
             return [];
         }

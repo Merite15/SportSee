@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { User as UserModel } from "../models/user";
-import { UserServicesMock } from "../services/api";
+import { UserServicesMock, UserServicesApi } from "../services/api";
 import { User as UserType } from "../types/User";
 
 export const useGetUserData = (userId: number | string) => {
@@ -19,7 +19,7 @@ export const useGetUserData = (userId: number | string) => {
         (async () => {
             setLoading(true)
             try {
-                const userServices =  new UserServicesMock(userId) ;
+                const userServices = (userId === 10) ? new UserServicesMock(userId) : new UserServicesApi(userId);
 
                 const store = {
                     id: userId,
