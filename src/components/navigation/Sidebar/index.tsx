@@ -1,7 +1,9 @@
-import meditation from "@/assets/svg/meditation.svg";
-import swim from "@/assets/svg/swimming.svg";
-import bike from "@/assets/svg/biking.svg";
-import bodyBuilding from "@/assets/svg/dumbbell.svg";
+import meditation from "./assets/meditation.svg";
+import swim from "./assets/swimming.svg";
+import bike from "./assets/biking.svg";
+import bodyBuilding from "./assets/dumbbell.svg";
+
+import "./style.scss";
 
 export const Sidebar = () => {
 	return (

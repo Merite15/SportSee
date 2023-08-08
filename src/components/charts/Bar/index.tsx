@@ -8,6 +8,8 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
+import "./style.scss";
+
 
 export const ChartBar = ({ data }: { data: Array<object> }) => {
     return (

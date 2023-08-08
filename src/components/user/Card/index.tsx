@@ -1,8 +1,10 @@
-import calories from "@/assets/svg/calories.svg";
-import proteines from "@/assets/svg/protein.svg";
-import glucides from "@/assets/svg/carbs.svg";
-import lipides from "@/assets/svg/fat.svg";
-import { Card as CardType } from "../../types/Card";
+import calories from "./assets/calories.svg";
+import proteines from "./assets/protein.svg";
+import glucides from "./assets/carbs.svg";
+import lipides from "./assets/fat.svg";
+import { Card as CardType } from "../../../types/Card";
+
+import "./style.scss";
 
 export const Card = ({ nbGramme, type }: CardType) => {
 

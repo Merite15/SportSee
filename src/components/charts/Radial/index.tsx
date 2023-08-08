@@ -1,5 +1,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
+import "./style.scss";
+
 export const ChartRadial = ({ score }: { score: number }) => {
     const data = [
         { name: 'Score', value: score * 100 },

@@ -1,5 +1,7 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
+import "./style.scss";
+
 export const ChartRadar = ({ data }: { data: Array<object> }) => {
     const polarGrid: boolean = false;
 

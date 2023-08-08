@@ -1,5 +1,7 @@
 import { LineChart, Line, Tooltip, XAxis, ResponsiveContainer } from 'recharts';
 
+import "./style.scss";
+
 export const ChartLine = ({ data }: { data: Array<object> }) => {        
     return (
         <div className='chartLine'>
