@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import logo from '../assets/svg/logo.svg';
+import logo from './logo.svg';
+
+import "./style.scss";
 
 export const Home = () => {
     return (

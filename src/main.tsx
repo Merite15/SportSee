@@ -7,7 +7,7 @@ import './assets/style.css';
 const domContainer = document.getElementById('root') as HTMLElement
 
 createRoot(domContainer).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <RouterProvider router={router} />
-  // </React.StrictMode>,
+  </React.StrictMode>,
 )

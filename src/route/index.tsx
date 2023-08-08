@@ -9,11 +9,11 @@ export const router = createBrowserRouter([
         element: <Home />
     },
     {
-        path: "*",
-        element: <NotFound />
-    },
-    {
         path: "/user/:id",
         element: <Profile />
+    },
+    {
+        path: "*",
+        element: <NotFound />
     }
 ]);
