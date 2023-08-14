@@ -12,7 +12,7 @@ import { ChartRadial } from '../../components/charts/Radial';
 import { Card as CardStat } from '../../components/user/Card';
 import "./style.scss";
 
-export const Profile = () => {
+export const Profile = (): JSX.Element => {
     const { id } = useParams();
 
     const [data, loading, error] = useGetUserData(Number(id));

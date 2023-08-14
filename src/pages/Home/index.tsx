@@ -3,7 +3,7 @@ import logo from './logo.svg';
 
 import "./style.scss";
 
-export const Home = () => {
+export const Home = (): JSX.Element => {
     return (
         <div className="home">
             <img src={logo} className="logo" alt="logo" />

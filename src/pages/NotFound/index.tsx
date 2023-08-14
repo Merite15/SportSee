@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "./style.scss";
 
-export const NotFound = () => {
+export const NotFound = (): JSX.Element => {
     return (
 
         <div className="notFound">
