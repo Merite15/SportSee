@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { User as UserModel } from "../models/user";
 import { UserServicesMock, UserServicesApi } from "../services/api";
 import { User as UserType } from "../types/User";
+import { NutrientInfos } from "../types/Models/NutrientInfos";
 
 export const useGetUserData = (userId: number | string) => {
     const [loading, setLoading] = useState(false);
@@ -31,7 +32,7 @@ export const useGetUserData = (userId: number | string) => {
                     performance: await userServices.getUserPerformance(userId),
                     score: await userServices.getUserScore(userId),
                     todayScore: await userServices.getUserScore(userId),
-                    userInfos: await userServices.getUserInfos(userId),
+                    userInfos: await userServices.getUserInfos(userId) as NutrientInfos,
                 };
 
                 setData(new UserModel(store));
