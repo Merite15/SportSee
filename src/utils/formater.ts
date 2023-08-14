@@ -1,14 +1,20 @@
+import { AverageFormater } from '../types/Formater/Average';
+import { BarFormater } from '../types/Formater/Bar';
+import { InfoFormater } from '../types/Formater/Info';
+import { PerformanceFormater } from '../types/Formater/Performance';
+
 export class ChartFormater {
-    static Bar(original: any) {
-        return original.sessions.map((session: any) => ({
+
+    static Bar(original: BarFormater) {
+        return original.sessions.map((session) => ({
             day: new Date(session.day).getDate().toString().padStart(1, '0'),
             kilogram: session.kilogram,
             calories: session.calories
         }));
     }
 
-    static Average(original: any) {
-        function formatDay(chiffre: any) {
+    static Average(original: AverageFormater) {
+        function formatDay(chiffre: number | string) {
             if (chiffre === 1) {
                 return "L";
             } else if (chiffre === 2) {
@@ -29,13 +35,13 @@ export class ChartFormater {
             }
         }
 
-        return original.sessions.map((session: any) => ({
+        return original.sessions.map((session) => ({
             day: formatDay(session.day),
             sessionLength: session.sessionLength
         }));
     };
 
-    static Performance(original: any) {
+    static Performance(original: PerformanceFormater) {
         function formatKind(chiffre: string | number) {
             if (chiffre === 1) {
                 return "Cardio";
@@ -55,7 +61,7 @@ export class ChartFormater {
             }
         }
 
-        const data = original.data.map((performance: any) => ({
+        const data = original.data.map((performance) => ({
             kind: formatKind(performance.kind),
             value: performance.value
         }));
@@ -65,7 +71,7 @@ export class ChartFormater {
         return reversedData;
     }
 
-    static Info(original: any) {
+    static Info(original: InfoFormater) {
         return {
             calorie: original.calorieCount,
             protein: original.proteinCount,

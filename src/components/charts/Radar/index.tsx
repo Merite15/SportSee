@@ -1,8 +1,10 @@
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer } from 'recharts';
 
+import { Performance } from "../../../types/Chart/Performance";
+
 import "./style.scss";
 
-export const ChartRadar = ({ data }: { data: Array<object> }) => {
+export const ChartRadar = ({ data }: { data: Performance }) => {
     const polarGrid: boolean = false;
 
     return (

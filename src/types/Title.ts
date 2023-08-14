@@ -1,17 +1,17 @@
 export interface Title {
-    data: {
-        id: number;
-        keyData?: {
-            calorieCount: number
-            carbohydrateCount: number
-            lipidCount: number
-            proteinCount: number
-        };
-        todayScore?: string;
-        userInfos?: {
+    data?: {
+        id: number,
+        userInfos: {
             firstName: string,
             lastName: string,
             age: number
-        };
+        }
+        todayScore: number,
+        keyData: {
+            calorieCount: number,
+            proteinCount: number,
+            carbohydrateCount: number,
+            lipidCount: number
+        }
     }
 }

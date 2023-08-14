@@ -8,10 +8,11 @@ import {
     ResponsiveContainer,
 } from 'recharts';
 
+import { ChartBar as BarType } from "../../../types/Chart/Bar";
+
 import "./style.scss";
 
-
-export const ChartBar = ({ data }: { data: Array<object> }) => {
+export const ChartBar = ({ data }: { data: BarType }) => {
     return (
         <div className='chartBar'>
             <div className="chartBar_head">

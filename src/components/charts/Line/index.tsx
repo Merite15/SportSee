@@ -1,8 +1,10 @@
 import { LineChart, Line, Tooltip, XAxis, ResponsiveContainer } from 'recharts';
 
+import { Average } from "../../../types/Chart/Average";
+
 import "./style.scss";
 
-export const ChartLine = ({ data }: { data: Array<object> }) => {        
+export const ChartLine = ({ data }: { data: Average }) => {        
     return (
         <div className='chartLine'>
             <h2>

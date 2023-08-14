@@ -10,12 +10,13 @@ import { ChartLine } from '../../components/charts/Line';
 import { ChartRadar } from '../../components/charts/Radar';
 import { ChartRadial } from '../../components/charts/Radial';
 import { Card as CardStat } from '../../components/user/Card';
+import { User as UserType } from "../../types/User";
 import "./style.scss";
 
 export const Profile = (): JSX.Element => {
     const { id } = useParams();
 
-    const [data, loading, error] = useGetUserData(Number(id));
+    const [data, loading, error] = useGetUserData(Number(id)) as [UserType, boolean, string];
 
     return (
         <>
