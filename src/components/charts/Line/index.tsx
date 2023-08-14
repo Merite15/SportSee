@@ -4,7 +4,7 @@ import { Average } from "../../../types/Chart/Average";
 
 import "./style.scss";
 
-export const ChartLine = ({ data }: { data: Average }) => {        
+export const ChartLine = ({ data }: { data?: Average[] }) => {        
     return (
         <div className='chartLine'>
             <h2>

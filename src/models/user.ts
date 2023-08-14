@@ -1,46 +1,20 @@
+import { Average } from '../types/Chart/Average';
+import { ChartBar } from '../types/Chart/Bar';
+import { Performance } from '../types/Chart/Performance';
+import { NutrientInfos } from '../types/Models/NutrientInfos';
+import { PersonalUserInfos } from '../types/Models/PersonalUserInfo';
 import { User as UserModel } from './../types/User';
 
 export class User {
     id: string | number;
-    userId: string | number
-    user: {
-        id: number,
-        userInfos: {
-            firstName: string,
-            lastName: string,
-            age: number
-        }
-        todayScore: number,
-        keyData: {
-            calorieCount: number,
-            proteinCount: number,
-            carbohydrateCount: number,
-            lipidCount: number
-        }
-    };
-    userInfos: {
-        calorie: number,
-        protein: number,
-        glucide: number,
-        lipid: number
-    };
-    activity: [
-        {
-            day: number,
-            kilogram: number,
-            calories: number
-        }
-    ];
-    average: [{
-        day: number,
-        sessionLength: number,
-    }];
-    performance: [{
-        kind: string,
-        value: number
-    }];
+    userId?: string | number
+    user?: PersonalUserInfos;
+    userInfos?: NutrientInfos;
+    activity?: ChartBar[];
+    average?: Average[];
+    performance?: Performance[];
     score: number;
-    todayScore: number;
+    todayScore?: number;
 
     constructor(data: UserModel) {
         this.id = data.id

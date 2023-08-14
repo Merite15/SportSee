@@ -1,8 +1,4 @@
 export interface Performance {
-    performance: [
-        {
-            kind: string,
-            value: number
-        }
-    ],
+    kind: string,
+    value: number
 }

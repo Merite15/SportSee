@@ -1,10 +1,6 @@
 import { User as UserType } from "../types/User";
 import { ChartFormater } from "../utils/formater";
 
-const URL_DEV = "http://localhost:5173/mock"
-
-const URL_PROD = "https://sport-see-backend-eight.vercel.app/user"
-
 export class UserServicesMock {
     id?: number | string;
 
@@ -14,7 +10,7 @@ export class UserServicesMock {
 
     getUser = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_DEV}/user.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/user.json`);
 
             const data = await response.json();
 
@@ -28,7 +24,7 @@ export class UserServicesMock {
     getUserActivity = async (id: number | string) => {
         try {
 
-            const response = await fetch(`${URL_DEV}/activities.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/activities.json`);
             const data = await response.json();
             return ChartFormater.Bar(data.find((user: UserType) => user.userId == id));
 
@@ -40,7 +36,7 @@ export class UserServicesMock {
     getUserAverage = async (id: number | string) => {
         try {
 
-            const response = await fetch(`${URL_DEV}/average_sessions.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/average_sessions.json`);
             const data = await response.json();
             return ChartFormater.Average(data.find((user: UserType) => user.userId == id));
 
@@ -52,7 +48,7 @@ export class UserServicesMock {
     getUserPerformance = async (id: number | string) => {
         try {
 
-            const response = await fetch(`${URL_DEV}/user_performance.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/user_performance.json`);
 
             const data = await response.json();
 
@@ -65,7 +61,7 @@ export class UserServicesMock {
     getUserScore = async (id: number | string) => {
         try {
 
-            const response = await fetch(`${URL_DEV}/user.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/user.json`);
 
             const data = await response.json();
 
@@ -79,7 +75,7 @@ export class UserServicesMock {
     getUserInfos = async (id: number | string) => {
         try {
 
-            const response = await fetch(`${URL_DEV}/user.json`);
+            const response = await fetch(`${import.meta.env.VITE_PUBLIC_URL}/user.json`);
 
             const data = await response.json();
 
@@ -100,7 +96,7 @@ export class UserServicesApi {
 
     getUser = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}`);
 
             const data = await response.json();
 
@@ -113,7 +109,7 @@ export class UserServicesApi {
 
     getUserActivity = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}/activity`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}/activity`);
 
             const data = await response.json();
 
@@ -126,7 +122,7 @@ export class UserServicesApi {
 
     getUserAverage = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}/average-sessions`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}/average-sessions`);
 
             const data = await response.json();
 
@@ -139,7 +135,7 @@ export class UserServicesApi {
 
     getUserPerformance = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}/performance`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}/performance`);
 
             const data = await response.json();
 
@@ -151,7 +147,7 @@ export class UserServicesApi {
 
     getUserScore = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}`);
 
             const data = await response.json();
 
@@ -164,7 +160,7 @@ export class UserServicesApi {
 
     getUserInfos = async (id: number | string) => {
         try {
-            const response = await fetch(`${URL_PROD}/${id}`);
+            const response = await fetch(`${import.meta.env.VITE_API_URL}/${id}`);
 
             const data = await response.json();
 

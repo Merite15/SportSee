@@ -12,7 +12,7 @@ import { ChartBar as BarType } from "../../../types/Chart/Bar";
 
 import "./style.scss";
 
-export const ChartBar = ({ data }: { data: BarType }) => {
+export const ChartBar = ({ data }: { data?: BarType[] }) => {
     return (
         <div className='chartBar'>
             <div className="chartBar_head">

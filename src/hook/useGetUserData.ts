@@ -10,7 +10,8 @@ export const useGetUserData = (userId: number | string) => {
     const [error, setError] = useState('');
 
     const [data, setData] = useState<UserType>({
-        id: ''
+        id: '',
+        score : 0
     });
 
     const navigate = useNavigate();
@@ -21,7 +22,7 @@ export const useGetUserData = (userId: number | string) => {
             try {
                 const userServices = (userId === 10) ? new UserServicesMock(userId) : new UserServicesApi(userId);
 
-                const store = {
+                const store : UserType = {
                     id: userId,
                     userId: userId,
                     user: await userServices.getUser(userId),

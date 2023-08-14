@@ -4,7 +4,7 @@ import { Performance } from "../../../types/Chart/Performance";
 
 import "./style.scss";
 
-export const ChartRadar = ({ data }: { data: Performance }) => {
+export const ChartRadar = ({ data }: { data?: Performance[] }) => {
     const polarGrid: boolean = false;
 
     return (

@@ -1,6 +1,4 @@
 export interface Average {
-    average?: [{
-        day: number,
-        sessionLength: number,
-    }],
+    day: number | string,
+    sessionLength: number,
 }
