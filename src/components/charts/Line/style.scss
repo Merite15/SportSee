@@ -12,16 +12,6 @@
     font-size: 12px;
     font-weight: $fontWeight;
 
-    &:before {
-        content: "";
-        width: 30%;
-        height: 100%;
-        background-color: black;
-        opacity: 0.1;
-        position: absolute;
-        right: 0;
-    }
-
     h2 {
         color: $colorSecondary;
         font-weight: $fontWeight;

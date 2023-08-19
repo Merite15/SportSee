@@ -12,7 +12,7 @@ import { ChartBar as BarType } from "../../../types/Chart/Bar";
 
 import "./style.scss";
 
-export const ChartBar = ({ data }: { data?: BarType[] }) => {
+export const ChartBar = ({ data }: { data?: BarType[] }) => {    
     return (
         <div className='chartBar'>
             <div className="chartBar_head">
@@ -27,7 +27,7 @@ export const ChartBar = ({ data }: { data?: BarType[] }) => {
                 <BarChart data={data}>
                     <CartesianGrid strokeDasharray="2 2" horizontal={true}
                         vertical={false} />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} />
+                    <XAxis dataKey="day" axisLine={false} tickLine={false} />
                     <YAxis orientation="right" axisLine={false} tickLine={false} />
 
                     <Tooltip
@@ -35,6 +35,7 @@ export const ChartBar = ({ data }: { data?: BarType[] }) => {
                         wrapperStyle={{ outline: "none", fontWeight: 600 }}
                         content={<CustomTooltip />}
                     />
+                    
                     <Bar dataKey="kilogram" name="kg" fill="black" radius={[10, 10, 0, 0]}
                         barSize={10} />
                     <Bar dataKey="calories" name="kCal" fill="red" radius={[10, 10, 0, 0]}

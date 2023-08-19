@@ -28,6 +28,7 @@
         .legend {
             margin-right: 10px;
             font-size: 14px;
+            color: $colorFont;
 
             &:before {
                 display: inline-flex;
@@ -54,8 +55,6 @@
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-        border: 1px solid black;
-        border-radius: 10px;
         align-items: center;
     }
 }

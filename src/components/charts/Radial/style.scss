@@ -33,18 +33,19 @@
         transform: translate(-50%, -50%);
         border-radius: 50%;
         z-index: -1;
-        background-color: $bgColor;
+        background-color: $bgWhite;
+        
 
         .percentage {
             font-size: 26px;
             font-weight: $fontWeight + 200;
-            color: $colorFont;
+            color: $colorPrimary;
         }
 
         .message {
             font-size: 16px;
             font-weight: $fontWeight + 100;
-            color: $colorFont;
+            color: gray;
             opacity: 0.6;
         }
     }
