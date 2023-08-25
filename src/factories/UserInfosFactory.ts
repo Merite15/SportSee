@@ -1,10 +1,11 @@
 import { ErrorData } from '@/models/ErrorData';
 import UserInfos from '@/models/user/Infos';
+import { Infos } from "@/utils/models/Infos";
 
 export class UserInfosFactory {
-  private data: any;
+  data: any;
 
-  constructor(data: any, type: string) {
+  constructor(data: Infos, type: string) {
     try {
       if (type === 'api') {
         this.data = new UserInfos(data);

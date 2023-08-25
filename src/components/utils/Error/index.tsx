@@ -1,18 +1,11 @@
-import React from 'react';
+import { ErrorFormat } from '@/utils/models/ErrorFormat';
 import './style.scss';
 
-interface ErrorProps {
-    error: {
-        name: string;
-        message: string;
-    };
-}
-
-export const Error: React.FC<ErrorProps> = ({ error }) => {
+export const Error = ({ name, message } : ErrorFormat) => {    
     return (
-        <div className="error-container">
-            <p>{error.name}</p>
-            <p>{error.message}</p>
+        <div className="error-content">
+            <p>{name}</p>
+            <p>{message}</p>
         </div>
     );
 };

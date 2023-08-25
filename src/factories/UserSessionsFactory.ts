@@ -1,10 +1,11 @@
 import { ErrorData } from '@/models/ErrorData';
 import UserSessions from '@/models/user/Sessions';
+import { UserSession } from '@/utils/models/UserSession';
 
 export class UserSessionsFactory {
-  private data: any;
+  data: any;
 
-  constructor(data: any, type: string) {
+  constructor(data: UserSession, type: string) {
     try {
       if (type === 'api') {
         this.data = new UserSessions(data);

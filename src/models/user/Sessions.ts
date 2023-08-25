@@ -1,6 +1,5 @@
 import { Duration } from '@/utils/types/Duration';
 import { UserSession } from '@/utils/models/UserSession';
-
 import { FormatSessionDuration } from '../formater/SessionDuration';
 
 class UserSessions {

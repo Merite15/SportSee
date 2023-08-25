@@ -34,7 +34,7 @@ class UserPerformance {
 
     const arrayOfDatas: Performance[] = this.constructor_data.map((element) => {
       const data = new FormatPerformanceData(element);
-      const mappedKind = kindMappings[data.kind] || data.kind;
+      const mappedKind = kindMappings[data.kind as any] || data.kind;
 
       return {
         value: data.value,

@@ -41,7 +41,7 @@ export const ChartLine = ({ userId }: { userId: number }) => {
 
     if (isError)
         return (
-            <Error error={error} />
+            <Error name={error.name} message={error.message} />
         );
 
     const handleMouseMove = (e: any) => {

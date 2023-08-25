@@ -1,10 +1,11 @@
 import { ErrorData } from '@/models/ErrorData';
 import UserPerformance from '@/models/user/Performance';
+import { UserPerformance as PerfType } from '@/utils/models/UserPerformance';
 
 export class UserPerformanceFactory {
-  private data: any;
+  data: any;
 
-  constructor(data: any, type: string) {
+  constructor(data: PerfType, type: string) {
     try {
       if (type === 'api') {
         this.data = new UserPerformance(data);

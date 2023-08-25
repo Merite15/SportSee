@@ -2,7 +2,7 @@ import { ErrorData } from '@/models/ErrorData';
 import UserActivities from '@/models/user/Activities';
 
 export class UserActivitiesFactory {
-  private data: any;
+  data: any;
 
   constructor(data: any, type: string) {
     try {

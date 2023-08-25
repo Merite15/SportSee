@@ -35,8 +35,9 @@ export const Home = () => {
 
   if (isError)
     return (
-      <Error error={error} />
-    );
+      <Error name={error.name} message={error.message} />
+    )
+    
 
   return (
     <>
@@ -44,27 +45,27 @@ export const Home = () => {
       <Sidebar />
       <div className="container">
 
-          <Title name={data.firstName} />
+        <Title name={data.firstName} />
 
-          <div className="content">
-            <div className="left-content">
-              <ChartBar userId={userId} />
+        <div className="content">
+          <div className="left-content">
+            <ChartBar userId={userId} />
 
-              <div className='charts'>
-                <ChartLine userId={userId} />
-                <ChartRadar userId={userId} />
-                <ChartRadial score={data.todayScore} />
-              </div>
-            </div>
-
-            <div className="right-content">
-              <CardInfo type="Calories" nbGramme={data.calorieCount} />
-              <CardInfo type="Proteines" nbGramme={data.proteinCount} />
-              <CardInfo type="Glucides" nbGramme={data.carbohydrateCount} />
-              <CardInfo type="Lipides" nbGramme={data.lipidCount} />
+            <div className='charts'>
+              <ChartLine userId={userId} />
+              <ChartRadar userId={userId} />
+              <ChartRadial score={data.todayScore} />
             </div>
           </div>
+
+          <div className="right-content">
+            <CardInfo type="Calories" nbGramme={data.calorieCount} />
+            <CardInfo type="Proteines" nbGramme={data.proteinCount} />
+            <CardInfo type="Glucides" nbGramme={data.carbohydrateCount} />
+            <CardInfo type="Lipides" nbGramme={data.lipidCount} />
+          </div>
         </div>
+      </div>
     </>
   );
 };

@@ -43,7 +43,7 @@ export const ChartBar = ({ userId }: { userId: number }) => {
 
   if (isError)
     return (
-      <Error error={error} />
+      <Error name={error.name} message={error.message} />
     );
 
   return (
