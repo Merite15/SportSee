@@ -1,19 +1,14 @@
-import { createBrowserRouter } from "react-router-dom";
-import { Home } from "../pages/Home";
-import { NotFound } from "../pages/NotFound";
-import { Profile } from "../pages/Profile";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Home } from '@/pages/home';
+import { NotFound } from '@/pages/notFound';
 
-export const router = createBrowserRouter([
-    {
-        path: "/",
-        element: <Home />
-    },
-    {
-        path: "/user/:id",
-        element: <Profile />
-    },
-    {
-        path: "*",
-        element: <NotFound />
-    }
-]);
+export const Router = () => {
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="*" element={<NotFound />} />
+            </Routes>
+        </BrowserRouter>
+    );
+};

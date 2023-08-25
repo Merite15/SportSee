@@ -1,0 +1,17 @@
+{
+  "data": {
+    "id": 10,
+    "userInfos": {
+      "firstName": "Eric",
+      "lastName": "Dupont",
+      "age": 25
+    },
+    "todayScore": 0.6,
+    "keyData": {
+      "calorieCount": 2200,
+      "proteinCount": 140,
+      "carbohydrateCount": 204,
+      "lipidCount": 80
+    }
+  }
+}

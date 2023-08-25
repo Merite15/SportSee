@@ -1,0 +1,25 @@
+@import "@/assets/scss/utils/variables";
+
+.error-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.error-container {
+    text-align: center;
+
+    p:first-child {
+        color: $colorPrimary;
+        font-size: 25px;
+        padding: 15px 0;
+    }
+
+    p:nth-child(2) {
+        font-size: 30px;
+        color: $colorFont;
+    }
+}

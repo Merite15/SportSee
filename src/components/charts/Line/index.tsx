@@ -1,22 +1,50 @@
-import { LineChart, Line, Tooltip, XAxis, ResponsiveContainer } from 'recharts';
-import { useRef } from "react"
-import { Average } from "../../../types/Chart/Average";
+import { FetchData } from '@/hook/useGetData';
+
+import { useRef, useEffect, useState } from 'react';
+
+import { UserSessionsFactory } from '@/factories/UserSessionsFactory';
+
+import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, } from 'recharts';
+
+import { ErrorFormat } from '@/utils/models/ErrorFormat';
+
+import { Error } from '../../utils/Error'
+import { Skeleton } from '../../utils/Skeleton';
 
 import "./style.scss";
 
-export const ChartLine = ({ data }: { data?: Average[] }) => {
-    /* `const averageDivRef = useRef<HTMLDivElement | null>(null);` is creating a ref object called
-    `averageDivRef` using the `useRef` hook. The ref object is initialized with a value of `null`
-    and has a type annotation of `HTMLDivElement | null`. */
+export const ChartLine = ({ userId }: { userId: number }) => {
+    const url = `${import.meta.env.VITE_URL}/average_sessions.json`
+    // const url = `${import.meta.env.VITE_API_URL}/${userId}/average-sessions`;
+
     const averageDivRef = useRef<HTMLDivElement | null>(null);
 
-    /**
-     * The function `handleMouseMove` updates the background gradient of an element based on the mouse
-     * position.
-     * @param {any} e - The parameter `e` is an event object that contains information about the mouse
-     * move event.
-     */
-    const handleMouseMove = (e : any) => {
+    const [sessions, setSessions] = useState([]);
+
+    const [data, isLoading, isError, error] = FetchData(
+        url,
+        1500,
+        UserSessionsFactory,
+        'api'
+    ) as [any, boolean, boolean, ErrorFormat]
+
+    useEffect(() => {
+        if (!isNaN(userId) && data) {
+            setSessions(data.sessions);
+        }
+    }, [userId, data]);
+
+    if (isLoading)
+        return (
+            <Skeleton />
+        );
+
+    if (isError)
+        return (
+            <Error error={error} />
+        );
+
+    const handleMouseMove = (e: any) => {
         if (e.isTooltipActive === true && averageDivRef.current) {
             let averageDiv = averageDivRef.current;
             let averageDivWidth = averageDiv.clientWidth;
@@ -24,22 +52,22 @@ export const ChartLine = ({ data }: { data?: Average[] }) => {
                 (e.activeCoordinate.x / averageDivWidth) * 100
             );
             averageDiv.style.backgroundImage = `linear-gradient(
-                to right, 
-                #ff0000 ${coordinateXPercent}%, 
-                #d60000 ${coordinateXPercent}%
-            )`;
+                  to right, 
+                  #ff0000 ${coordinateXPercent}%, 
+                  #d60000 ${coordinateXPercent}%
+              )`;
         }
     };
 
     return (
-        <div className='chartLine'  ref={averageDivRef}>
+        <div className='chartLine' ref={averageDivRef}>
             <h2>
                 Durée moyenne des sessions
             </h2>
 
             <ResponsiveContainer width="100%" height="100%">
 
-                <LineChart data={data} margin={{ bottom: 10 }} onMouseMove={handleMouseMove} >
+                <LineChart data={sessions} margin={{ bottom: 10 }} onMouseMove={handleMouseMove} >
 
                     <Line type="monotone" dataKey="sessionLength" stroke="#FFFFFF"
                         strokeWidth={2.5} dot={false}
@@ -72,5 +100,5 @@ export const ChartLine = ({ data }: { data?: Average[] }) => {
                 <p>D</p>
             </div>
         </div>
-    )
-}
+    );
+};
