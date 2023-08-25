@@ -37,7 +37,7 @@ export const Home = () => {
     return (
       <Error name={error.name} message={error.message} />
     )
-    
+
 
   return (
     <>

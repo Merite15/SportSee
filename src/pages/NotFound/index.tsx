@@ -3,7 +3,6 @@ import "./style.scss";
 
 export const NotFound = (): JSX.Element => {
     return (
-
         <div className="notFound">
             <div>
                 <div className="notFound__code">404</div>
@@ -12,6 +11,5 @@ export const NotFound = (): JSX.Element => {
                     d’accueil</NavLink></div>
             </div>
         </div>
-
     );
 }
