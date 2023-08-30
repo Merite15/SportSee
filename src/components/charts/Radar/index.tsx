@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react';
 
-import { FetchData } from '@/hook/useGetData';
+import { useFetchData } from '@/hook/useGetData';
 
 import { UserPerformanceFactory } from '@/factories/UserPerformanceFactory';
-
-import "./style.scss";
 
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart, ResponsiveContainer } from 'recharts';
 
@@ -13,14 +11,17 @@ import { Error } from '../../utils/Error'
 
 import { ErrorFormat } from '@/utils/models/ErrorFormat';
 import { Performance } from '@/utils/types/Performance';
+import { ChartsProps } from '@/utils/models/ChartsProps';
 
-export const ChartRadar = ({ userId }: { userId: number }) => {
+import "./style.scss";
+
+export const ChartRadar = ({ userId }: ChartsProps) => {
   const url = `${import.meta.env.VITE_URL}/performance.json`
   // const url = `${import.meta.env.VITE_API_URL}/${userId}/performance`;
 
   const [performances, SetPerformances] = useState([]);
 
-  const [data, isLoading, isError, error] = FetchData(
+  const [data, isLoading, isError, error] = useFetchData(
     url,
     3000,
     UserPerformanceFactory,

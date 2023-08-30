@@ -1,4 +1,4 @@
-import { FetchData } from '@/hook/useGetData';
+import { useFetchData } from '@/hook/useGetData';
 
 import { useRef, useEffect, useState } from 'react';
 
@@ -11,9 +11,11 @@ import { ErrorFormat } from '@/utils/models/ErrorFormat';
 import { Error } from '../../utils/Error'
 import { Skeleton } from '../../utils/Skeleton';
 
+import { ChartsProps } from '@/utils/models/ChartsProps';
+
 import "./style.scss";
 
-export const ChartLine = ({ userId }: { userId: number }) => {
+export const ChartLine = ({ userId }: ChartsProps) => {
     const url = `${import.meta.env.VITE_URL}/average_sessions.json`
     // const url = `${import.meta.env.VITE_API_URL}/${userId}/average-sessions`;
 
@@ -21,7 +23,7 @@ export const ChartLine = ({ userId }: { userId: number }) => {
 
     const [sessions, setSessions] = useState([]);
 
-    const [data, isLoading, isError, error] = FetchData(
+    const [data, isLoading, isError, error] = useFetchData(
         url,
         1500,
         UserSessionsFactory,

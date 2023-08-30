@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, } from 'recharts';
 
-import { FetchData } from '@/hook/useGetData';
+import { useFetchData } from '@/hook/useGetData';
 
 import { UserActivitiesFactory } from '@/factories/UserActivitiesFactory';
 
@@ -10,15 +10,17 @@ import { Error } from '../../utils/Error'
 import { ErrorFormat } from '@/utils/models/ErrorFormat';
 import { Skeleton } from '../../utils/Skeleton';
 
+import { ChartsProps } from '@/utils/models/ChartsProps';
+
 import "./style.scss";
 
-export const ChartBar = ({ userId }: { userId: number }) => {
+export const ChartBar = ({ userId }: ChartsProps) => {
   const url = `${import.meta.env.VITE_URL}/activity.json`
   // const url = `${import.meta.env.VITE_API_URL}/${userId}/activity`;
 
   const [activities, setActivities] = useState([]);
 
-  const [data, isLoading, isError, error] = FetchData(
+  const [data, isLoading, isError, error] = useFetchData(
     url,
     2000,
     UserActivitiesFactory,

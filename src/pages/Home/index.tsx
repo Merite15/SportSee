@@ -1,4 +1,4 @@
-import { FetchData } from '@/hook/useGetData';
+import { useFetchData } from '@/hook/useGetData';
 
 import { UserInfosFactory } from '@/factories/UserInfosFactory';
 import { Header } from '@/components/header';
@@ -21,7 +21,7 @@ export const Home = () => {
   const url = `${import.meta.env.VITE_URL}/userInfos.json`
   // const url = `${import.meta.env.VITE_API_URL}/${userId}`;
 
-  const [data, isLoading, isError, error] = FetchData(
+  const [data, isLoading, isError, error] = useFetchData(
     url,
     2000,
     UserInfosFactory,

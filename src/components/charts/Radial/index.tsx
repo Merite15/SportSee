@@ -1,7 +1,9 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 import "./style.scss";
 
-export const ChartRadial = ({ score }: { score: number }) => {
+interface ChartRadialProps { score: number }
+
+export const ChartRadial = ({ score }: ChartRadialProps) => {
   const data = [
     { name: 'Score', value: score * 100 },
   ];

@@ -1,6 +1,8 @@
 import "./style.scss";
 
-export const Title = ({ name }: { name: string }) => {
+interface TitleProps { name: string }
+
+export const Title = ({ name }: TitleProps) => {
     return (
         <div className="user-infos">
             <h1>
