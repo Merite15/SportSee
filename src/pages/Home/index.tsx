@@ -17,9 +17,10 @@ import "./style.scss";
 
 export const Home = () => {
   const userId = import.meta.env.VITE_USER_ID;
-  const app_mode = import.meta.env.VITE_MODE;
 
-  const url = app_mode === "local" ? `${import.meta.env.VITE_URL}/userInfos.json` : `${import.meta.env.VITE_API_URL}/${userId}`
+  const app_mode = import.meta.env.VITE_APP_ENV;
+
+  const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/userInfos.json` : `${import.meta.env.VITE_API_URL}/${userId}`
   
   const [data, isLoading, isError, error] = useFetchData(
     url,

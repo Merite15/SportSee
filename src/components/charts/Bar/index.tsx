@@ -15,8 +15,10 @@ import { ChartsProps } from '@/utils/models/ChartsProps';
 import "./style.scss";
 
 export const ChartBar = ({ userId }: ChartsProps) => {
-  // const url = `${import.meta.env.VITE_URL}/activity.json`
-  const url = `${import.meta.env.VITE_API_URL}/${userId}/activity`;
+
+  const app_mode = import.meta.env.VITE_APP_ENV;
+
+  const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/activity.json` : `${import.meta.env.VITE_API_URL}/${userId}/activity`
 
   const [activities, setActivities] = useState([]);
 

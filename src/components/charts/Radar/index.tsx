@@ -16,8 +16,9 @@ import { ChartsProps } from '@/utils/models/ChartsProps';
 import "./style.scss";
 
 export const ChartRadar = ({ userId }: ChartsProps) => {
-  // const url = `${import.meta.env.VITE_URL}/performance.json`
-  const url = `${import.meta.env.VITE_API_URL}/${userId}/performance`;
+  const app_mode = import.meta.env.VITE_APP_ENV;
+
+  const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/performance.json` : `${import.meta.env.VITE_API_URL}/${userId}/performance`
 
   const [performances, SetPerformances] = useState([]);
 

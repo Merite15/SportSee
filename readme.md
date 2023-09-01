@@ -13,7 +13,7 @@ https://sportsee-merite.vercel.app/
 
 To run this project, you will need to add the following environment variables to your .env file
 
-`VITE_URL`
+`VITE_PUBLIC_URL`
 
 `VITE_API_URL`
 
