@@ -19,6 +19,8 @@ To run this project, you will need to add the following environment variables to
 
 `VITE_USER_ID`
 
+`VITE_APP_ENV`
+
 
 ## Run Locally
 
@@ -37,7 +39,12 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  yarn add
+  yarn
+```
+
+Env Variables
+```bash
+  add .env variables
 ```
 
 Start the server
