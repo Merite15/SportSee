@@ -16,8 +16,8 @@ import { ChartsProps } from '@/utils/models/ChartsProps';
 import "./style.scss";
 
 export const ChartLine = ({ userId }: ChartsProps) => {
-    const url = `${import.meta.env.VITE_URL}/average_sessions.json`
-    // const url = `${import.meta.env.VITE_API_URL}/${userId}/average-sessions`;
+    // const url = `${import.meta.env.VITE_URL}/average_sessions.json`
+    const url = `${import.meta.env.VITE_API_URL}/${userId}/average-sessions`;
 
     const averageDivRef = useRef<HTMLDivElement | null>(null);
 

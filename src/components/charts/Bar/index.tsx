@@ -15,8 +15,8 @@ import { ChartsProps } from '@/utils/models/ChartsProps';
 import "./style.scss";
 
 export const ChartBar = ({ userId }: ChartsProps) => {
-  const url = `${import.meta.env.VITE_URL}/activity.json`
-  // const url = `${import.meta.env.VITE_API_URL}/${userId}/activity`;
+  // const url = `${import.meta.env.VITE_URL}/activity.json`
+  const url = `${import.meta.env.VITE_API_URL}/${userId}/activity`;
 
   const [activities, setActivities] = useState([]);
 

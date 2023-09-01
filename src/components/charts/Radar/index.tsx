@@ -16,8 +16,8 @@ import { ChartsProps } from '@/utils/models/ChartsProps';
 import "./style.scss";
 
 export const ChartRadar = ({ userId }: ChartsProps) => {
-  const url = `${import.meta.env.VITE_URL}/performance.json`
-  // const url = `${import.meta.env.VITE_API_URL}/${userId}/performance`;
+  // const url = `${import.meta.env.VITE_URL}/performance.json`
+  const url = `${import.meta.env.VITE_API_URL}/${userId}/performance`;
 
   const [performances, SetPerformances] = useState([]);
 
