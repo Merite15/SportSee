@@ -1,44 +1,28 @@
-import { useFetchData } from '@/hook/useGetData';
-
-import { UserInfosFactory } from '@/factories/UserInfosFactory';
 import { Header } from '@/components/header';
 import { Sidebar } from '@/components/sidebar';
 import { Loader } from '@/components/utils/Loader';
-import { Error } from '@/components/utils/Error';
 import { CardInfo } from '@/components/user/CardInfo';
 import { Title } from '@/components/user/Title';
 import { ChartBar } from '@/components/charts/Bar';
 import { ChartLine } from '@/components/charts/Line';
 import { ChartRadar } from '@/components/charts/Radar';
 import { ChartRadial } from '@/components/charts/Radial';
-import { ErrorFormat } from '@/utils/models/ErrorFormat';
+import { useGetUserData } from '@/hook/useGetUserData';
 
 import "./style.scss";
 
+type ApiData = {
+  userInfosData: any;
+  loading: boolean;
+};
+
 export const Home = () => {
-  const userId = import.meta.env.VITE_USER_ID;
+  const { userInfosData, loading }: ApiData = useGetUserData()
 
-  const app_mode = import.meta.env.VITE_APP_ENV;
-
-  const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/userInfos.json` : `${import.meta.env.VITE_API_URL}/${userId}`
-  
-  const [data, isLoading, isError, error] = useFetchData(
-    url,
-    2000,
-    UserInfosFactory,
-    'api'
-  ) as [any, boolean, boolean, ErrorFormat]
-
-  if (isLoading)
+  if (loading)
     return (
       <Loader />
     );
-
-  if (isError)
-    return (
-      <Error name={error.name} message={error.message} />
-    )
-
 
   return (
     <>
@@ -46,24 +30,24 @@ export const Home = () => {
       <Sidebar />
       <div className="container">
 
-        <Title name={data.firstName} />
+        <Title name={userInfosData.firstName} />
 
         <div className="content">
           <div className="left-content">
-            <ChartBar userId={userId} />
+            <ChartBar />
 
             <div className='charts'>
-              <ChartLine userId={userId} />
-              <ChartRadar userId={userId} />
-              <ChartRadial score={data.todayScore} />
+              <ChartLine />
+              <ChartRadar />
+              <ChartRadial score={userInfosData.todayScore} />
             </div>
           </div>
 
           <div className="right-content">
-            <CardInfo type="Calories" nbGramme={data.calorieCount} />
-            <CardInfo type="Proteines" nbGramme={data.proteinCount} />
-            <CardInfo type="Glucides" nbGramme={data.carbohydrateCount} />
-            <CardInfo type="Lipides" nbGramme={data.lipidCount} />
+            <CardInfo type="Calories" nbGramme={userInfosData.calorieCount} />
+            <CardInfo type="Proteines" nbGramme={userInfosData.proteinCount} />
+            <CardInfo type="Glucides" nbGramme={userInfosData.carbohydrateCount} />
+            <CardInfo type="Lipides" nbGramme={userInfosData.lipidCount} />
           </div>
         </div>
       </div>

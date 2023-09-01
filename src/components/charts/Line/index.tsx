@@ -1,50 +1,34 @@
-import { useFetchData } from '@/hook/useGetData';
-
 import { useRef, useEffect, useState } from 'react';
-
-import { UserSessionsFactory } from '@/factories/UserSessionsFactory';
 
 import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, } from 'recharts';
 
-import { ErrorFormat } from '@/utils/models/ErrorFormat';
-
-import { Error } from '../../utils/Error'
 import { Skeleton } from '../../utils/Skeleton';
 
-import { ChartsProps } from '@/utils/models/ChartsProps';
+import { useGetUserData } from '@/hook/useGetUserData';
 
 import "./style.scss";
 
-export const ChartLine = ({ userId }: ChartsProps) => {
-    const app_mode = import.meta.env.VITE_APP_ENV;
+type ApiData = {
+    sessionsData: any;
+    loading: boolean;
+};
 
-    const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/average_sessions.json` : `${import.meta.env.VITE_API_URL}/${userId}/average-sessions`
-
+export const ChartLine = () => {
     const averageDivRef = useRef<HTMLDivElement | null>(null);
 
     const [sessions, setSessions] = useState([]);
 
-    const [data, isLoading, isError, error] = useFetchData(
-        url,
-        1500,
-        UserSessionsFactory,
-        'api'
-    ) as [any, boolean, boolean, ErrorFormat]
+    const { sessionsData, loading }: ApiData = useGetUserData()
 
     useEffect(() => {
-        if (!isNaN(userId) && data) {
-            setSessions(data.sessions);
+        if (sessionsData) {
+            setSessions(sessionsData.sessions);
         }
-    }, [userId, data]);
+    }, [sessionsData]);
 
-    if (isLoading)
+    if (loading)
         return (
             <Skeleton />
-        );
-
-    if (isError)
-        return (
-            <Error name={error.name} message={error.message} />
         );
 
     const handleMouseMove = (e: any) => {

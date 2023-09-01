@@ -2,32 +2,21 @@ import { useEffect, useState } from 'react';
 
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis, } from 'recharts';
 
-import { useFetchData } from '@/hook/useGetData';
-
-import { UserActivitiesFactory } from '@/factories/UserActivitiesFactory';
-
-import { Error } from '../../utils/Error'
-import { ErrorFormat } from '@/utils/models/ErrorFormat';
 import { Skeleton } from '../../utils/Skeleton';
 
-import { ChartsProps } from '@/utils/models/ChartsProps';
+import { useGetUserData } from '@/hook/useGetUserData';
 
 import "./style.scss";
 
-export const ChartBar = ({ userId }: ChartsProps) => {
+type ApiData = {
+  activitiesData: any;
+  loading: boolean;
+};
 
-  const app_mode = import.meta.env.VITE_APP_ENV;
-
-  const url = app_mode === "local" ? `${import.meta.env.VITE_PUBLIC_URL}/activity.json` : `${import.meta.env.VITE_API_URL}/${userId}/activity`
-
+export const ChartBar = () => {
   const [activities, setActivities] = useState([]);
 
-  const [data, isLoading, isError, error] = useFetchData(
-    url,
-    2000,
-    UserActivitiesFactory,
-    'api'
-  ) as [any, boolean, boolean, ErrorFormat]
+  const { activitiesData, loading } : ApiData = useGetUserData()
 
   const formatXAxis = (tick: string) => {
     const date = new Date(tick);
@@ -35,19 +24,14 @@ export const ChartBar = ({ userId }: ChartsProps) => {
   };
 
   useEffect(() => {
-    if (!isNaN(userId) && data) {
-      setActivities(data.sessions);
+    if (activitiesData) {
+      setActivities(activitiesData.sessions);
     }
-  }, [userId, data]);
+  }, [activitiesData]);
 
-  if (isLoading)
+  if (loading)
     return (
       <Skeleton />
-    );
-
-  if (isError)
-    return (
-      <Error name={error.name} message={error.message} />
     );
 
   return (
